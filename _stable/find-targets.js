@@ -97,7 +97,7 @@ export function getPotentialTargets(ns, compareField = "revYield") {
 
 	var networkNodes = getNetworkNodes(ns);
 	var hackableNodes = networkNodes.filter(node => {
-		return canHack(ns, node) && canPenetrate(ns, node, cracks) && !node.includes("pserv")
+		return !node.includes("pserv")  && !node.includes("hacknet-server-") && canHack(ns, node) && canPenetrate(ns, node, cracks)
 	});
 
 	// Prepare the servers to have root access
